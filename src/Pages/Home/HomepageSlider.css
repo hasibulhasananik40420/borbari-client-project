@@ -1,0 +1,55 @@
+.homepage-slide-1 {
+  background-image: url("../../images/banner-image-03.webp");
+  background-size: cover;
+}
+.homepage-slide-2 {
+  background-image: url("../../images/wedding-125.webp");
+  background-size: cover;
+}
+.slick-dots li {
+  border-color: white !important;
+  cursor: pointer !important;
+  height: 17px !important;
+  width: 17px !important;
+  border-radius: 50% !important;
+  border: 3px solid #acacac !important;
+  transition: all 0.3s linear !important;
+}
+.slick-dots .slick-active {
+  color: #f17677 !important;
+  border-color: white !important;
+  box-shadow: 0px 0px 6px rgba(241, 118, 119, 0.6) !important;
+  background: #f17677 !important;
+}
+.slick-dots li button:before {
+  display: none !important;
+}
+.slick-dots {
+  position: absolute !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  bottom: 20px !important;
+  top: initial !important;
+}
+
+.carousel-content{
+    text-align: center;
+    height: calc(100vh + 70px);
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+.Typewriter{
+    font-size: 60px;
+}
+.overlay{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 10, 0.6);
+    z-index: 9;
+}

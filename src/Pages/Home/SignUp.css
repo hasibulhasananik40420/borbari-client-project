@@ -1,0 +1,35 @@
+.signup {
+  background: #eaeaea;
+  padding-top: 70px;
+  padding-bottom: 70px;
+  position: relative;
+  display: block;
+}
+.signup_pattern {
+  position: absolute;
+}
+.signup_pattern_one {
+  top: 0;
+  left: 0;
+}
+.signup_pattern_two {
+  bottom: 0;
+  left: 0;
+}
+.signup_pattern_three {
+  bottom: 0;
+  right: 0;
+}
+.signup_pattern_four {
+  top: 0;
+  right: 0;
+}
+
+.signup-container {
+  border: 2px solid #f17677;
+  border-radius: 46px;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  position: relative;
+  z-index: 9;
+}
