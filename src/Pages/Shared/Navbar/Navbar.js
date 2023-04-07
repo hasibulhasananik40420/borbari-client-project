@@ -145,7 +145,7 @@ const Navbar = () => {
                 <Link className="text-white  font-semibold" to='/blog'>Blog</Link>
               </li>
               <li>
-                <Link className="text-white l font-semibold" to='/blog'>Search</Link>
+                <Link className="text-white l font-semibold" to='/search'>Search</Link>
               </li>
               <li>
                 <Link className="text-white font-semibold" to='/contact'>Contact Us</Link>
@@ -169,7 +169,7 @@ const Navbar = () => {
                 <Link className="text-white  font-semibold" to='/blog'>Blog</Link>
               </li>
               <li>
-                <Link className="text-white l font-semibold" to='/blog'>Search</Link>
+                <Link className="text-white l font-semibold" to='/search'>Search</Link>
               </li>
               <li>
                 <Link className="text-white font-semibold" to='/contact'>Contact Us</Link>

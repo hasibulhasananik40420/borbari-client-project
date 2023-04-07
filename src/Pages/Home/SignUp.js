@@ -8,7 +8,7 @@ import "./SignUp.css";
 const SignUp = () => {
   return (
     <div className="signup">
-      <div class="signup_patterns -z-10">
+      <div class="signup_patterns">
         <div class="signup_pattern signup_pattern_one">
           <img src={SignUpPatternOne} alt="" />
         </div>
@@ -25,7 +25,7 @@ const SignUp = () => {
 
 
 
-      <div class="signup-container mx-60 z-[9999]">
+      <div class="signup-container mx-60 ">
         <h2 className="text-center text-[#f17677] text-[45px]">
           REGISTER NOW FREE
         </h2>
