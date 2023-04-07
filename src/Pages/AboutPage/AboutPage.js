@@ -2,7 +2,7 @@ import React from 'react'
 
 const AboutPage = () => {
     return (
-        <div className=' mt-52 py-16 bg-[#ffffff] text-[#737373] max-w-max'>
+        <div className=' mt-72 py-16 bg-[#ffffff] text-[#737373] max-w-max'>
 
             <h1 className='lg:text-4xl text-2xl text-center  '>About Us:</h1>
 

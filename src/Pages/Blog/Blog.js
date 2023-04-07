@@ -2,7 +2,7 @@ import React from 'react'
 
 const Blog = () => {
     return (
-        <div className='mt-52 py-16 bg-[#ffffff]'>
+        <div className='mt-72 py-16 bg-[#ffffff]'>
 
             <div className='max-w-max mx-auto'>
 

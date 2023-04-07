@@ -3,7 +3,7 @@ import React from 'react'
 const OurService = () => {
     //bg-[#ffffff] text-[#737373]
     return (
-        <div className='mt-52 py-16 bg-[#ffffff]'>
+        <div className='mt-72 py-16 bg-[#ffffff]'>
             <h1 className='text-center text-[#737373] lg:text-4xl text-2xl'>Our Service:</h1>
 
             <div className='lg:mx-20 mx-4 max-w-max '>

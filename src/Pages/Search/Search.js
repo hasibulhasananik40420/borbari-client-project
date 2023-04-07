@@ -5,7 +5,7 @@ import { Link, Outlet } from 'react-router-dom';
 import FilterSearch from './FilterSearch';
 const Search = () => {
     return (
-        <div className='mt-64 lg:mx-16 px-2'>
+        <div className='mt-72 lg:mx-16 px-2'>
 
 
 

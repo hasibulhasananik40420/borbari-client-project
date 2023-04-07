@@ -4,7 +4,7 @@ import { BsTelephone } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
 const Register = () => {
   return (
-    <div className='mt-64 lg:mx-16 mx-2'>
+    <div className='mt-72 lg:mx-16 mx-2'>
 
 
 

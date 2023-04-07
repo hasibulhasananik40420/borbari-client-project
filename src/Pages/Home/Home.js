@@ -8,12 +8,13 @@ import Special from "./Special";
 const Home = () => {
   return (
     <div>
-      <HomapageSlider/>
+      <HomapageSlider />
       <Special/>
-     
-      <Weddings/>
-      <LatestNews/>
-      <Happiness/>
+      {/* <Special2 /> */}
+
+      <Weddings />
+      <LatestNews />
+      <Happiness />
     </div>
   );
 };
