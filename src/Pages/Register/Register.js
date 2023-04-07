@@ -4,7 +4,7 @@ import { BsTelephone } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
 const Register = () => {
   return (
-    <div className='mt-64 mx-16'>
+    <div className='mt-64 lg:mx-16 mx-2'>
 
 
 
@@ -75,7 +75,7 @@ const Register = () => {
 
             <span className='pt-8'>Already Have Account   <Link to='/login' className='text-red-500 ml-2'>Login</Link></span>
 
-             <span className='pt-8'>Already Registered   <Link to='/active-acount' className='text-red-500 ml-2'>Active Account</Link></span>
+             <span className='pt-8'>Already Registered   <Link to='/active-account' className='text-red-500 ml-2'>Active Account</Link></span>
             
 
 
@@ -89,7 +89,7 @@ const Register = () => {
 
          {/* left side */}
 
-         <div className='lg:w-[300px] w-full h-full bg-white p-6 rounded-2xl'>
+         <div className='lg:w-[300px] w-full h-full bg-white p-6 rounded-2xl lg:block hidden'>
           <h1 className='text-2xl font-medium text-red-500'>Why register in borbibi.com?</h1>
           <div className='flex flex-col gap-3 mt-6'>
             <div className='flex gap-1 items-center'>
@@ -151,7 +151,7 @@ const Register = () => {
             <Link className='text-[15px] font-medium' to='/login'>Login</Link>
             <Link className='text-[15px] font-medium' to='/search'>Search</Link>
             <Link className='text-[15px] font-medium' to='/search'>Advance Search</Link>
-            <Link className='text-[15px] font-medium' to='/search'>Working Process</Link>
+            <Link className='text-[15px] font-medium' to='/working-progess'>Working Process</Link>
           </div>
 
 

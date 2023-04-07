@@ -50,7 +50,7 @@ const Login = () => {
 
         {/* left side */}
 
-        <div className='lg:w-[300px] w-full h-full bg-white p-6 rounded-2xl'>
+        <div className='lg:w-[300px] w-full h-full bg-white p-6 rounded-2xl lg:block hidden'>
           <h1 className='text-2xl font-medium text-red-500'>Why register in borbibi.com?</h1>
           <div className='flex flex-col gap-3 mt-6'>
             <div className='flex gap-1 items-center'>

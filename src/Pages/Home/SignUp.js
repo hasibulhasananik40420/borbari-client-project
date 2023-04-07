@@ -25,7 +25,7 @@ const SignUp = () => {
 
 
 
-      <div class="signup-container mx-60 ">
+      {/* <div class="signup-container mx-60 ">
         <h2 className="text-center text-[#f17677] text-[45px]">
           REGISTER NOW FREE
         </h2>
@@ -102,7 +102,7 @@ const SignUp = () => {
             </label>
           </div>
         </form>
-      </div> 
+      </div>  */}
     </div>
   );
 };

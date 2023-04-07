@@ -18,6 +18,9 @@ import SearchById from './Pages/Search/NestedRoute/SearchById';
 import DistrictSearch from './Pages/Search/NestedRoute/DistrictSearch';
 import ProfessionSearch from './Pages/Search/NestedRoute/ProfessionSearch';
 import BorbibiSearch from './Pages/Search/NestedRoute/BorbibiSearch';
+import ActiveAccount from './Pages/ActiveAccount/ActiveAccount';
+import ForgetPassword from './Pages/ForgetPassword/ForgetPassword';
+import WorkingProgess from './Pages/WorkingProgess/WorkingProgess';
 
 const App = () => {
   return (
@@ -33,6 +36,9 @@ const App = () => {
         <Route path="/search" element={<Search />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/active-account" element={<ActiveAccount />} />
+        <Route path="/forget-password" element={<ForgetPassword />} />
+        <Route path="/working-progess" element={<WorkingProgess />} />
 
 
 
