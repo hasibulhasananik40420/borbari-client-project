@@ -35,7 +35,7 @@ const HomapageSlider = () => {
               The World.
             </span>
 
-            <div className="lg:mt-3 lg:w-[86%] w-full lg:mb-8">
+            <div className="lg:mt-3 lg:w-[86%] w-full lg:mb-8 lg:block hidden">
 
 
               <div className="lg:flex lg:flex-row lg:justify-center lg:items-center lg:gap-6 mt-6 w-full lg:h-[150px] h-full flex flex-col justify-center items-center gap-3 bg-[#00000a] opacity-70  rounded-full ">
@@ -113,7 +113,7 @@ const HomapageSlider = () => {
               Thousands of happy marriages happened through us.You could be
               next!
             </span>
-            <div className="lg:mt-3 lg:w-[86%] w-full lg:mb-8">
+            <div className="lg:mt-3 lg:w-[86%] w-full lg:mb-8 lg:block hidden">
 
 
               <div className="lg:flex lg:flex-row lg:justify-center lg:items-center lg:gap-6 mt-6 w-full lg:h-[150px] h-full flex flex-col justify-center items-center gap-3 bg-[#00000a] opacity-70  rounded-full ">
@@ -177,64 +177,7 @@ const HomapageSlider = () => {
 
 
 
-      {/* <form class="search-box px-40">
-        <div class="grid grid-cols-5">
-          <div class="forms grid grid-cols-4 col-span-4 gap-x-4 pl-[70px] pr-2 pt-8 pb-11 border-[#ee2a4f] border border-r-0">
-            <div className="form-control w-full">
-              <label className="label">
-                <span className="label-text">I'm looking for a</span>
-              </label>
-              <select className="select select-bordered">
-                <option disabled selected>
-                  Select...
-                </option>
-                <option>Star Wars</option>
-                <option>Harry Potter</option>
-              </select>
-            </div>
-            <div className="form-control w-full">
-              <label className="label">
-                <span className="label-text">Aged</span>
-              </label>
-              <select className="select select-bordered">
-                <option disabled selected>
-                  Select...
-                </option>
-                <option>Star Wars</option>
-                <option>Harry Potter</option>
-              </select>
-            </div>
-            <div className="form-control w-full">
-              <label className="label">
-                <span className="label-text">Religion</span>
-              </label>
-              <select className="select select-bordered">
-                <option disabled selected>
-                  Select...
-                </option>
-                <option>Star Wars</option>
-                <option>Harry Potter</option>
-              </select>
-            </div>
-            <div className="form-control w-full">
-              <label className="label">
-                <span className="label-text">Marital Status</span>
-              </label>
-              <select className="select select-bordered">
-                <option disabled selected>
-                  Select...
-                </option>
-                <option>Star Wars</option>
-                <option>Harry Potter</option>
-              </select>
-            </div>
-          </div>
-          <div class="button bg-white border-[#ee2a4f] border border-l-0">
-            <button class="search-btn">Let's Begin</button> <br />
-            <a href="/profile-search">Advanced search</a>
-          </div>
-        </div>
-      </form> */}
+     
     </div>
   );
 };
