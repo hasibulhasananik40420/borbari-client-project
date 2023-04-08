@@ -17,6 +17,10 @@ const HighlightedProfile = () => {
                     <HighlightedProfileCard />
                     <HighlightedProfileCard />
                     <HighlightedProfileCard />
+                    <HighlightedProfileCard />
+                    <HighlightedProfileCard />
+                    <HighlightedProfileCard />
+                    <HighlightedProfileCard />
 
                 </div>
 
