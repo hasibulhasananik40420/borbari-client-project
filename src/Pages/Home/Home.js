@@ -4,6 +4,7 @@ import Weddings from "./Weddings";
 import LatestNews from "./LatestNews";
 import Happiness from "./Happiness";
 import Special from "./Special";
+import HighlightedProfile from "../../Components/HighlightedProfile/HighlightedProfile";
 
 const Home = () => {
   return (
@@ -11,6 +12,7 @@ const Home = () => {
       <HomapageSlider />
       <Special/>
       {/* <Special2 /> */}
+      <HighlightedProfile/>
 
       <Weddings />
       <LatestNews />
