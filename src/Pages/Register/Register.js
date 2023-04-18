@@ -2,30 +2,58 @@ import React from 'react'
 import { RxDot } from 'react-icons/rx';
 import { BsTelephone } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import { AuthContext } from '../../Context/AuthContext';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const Register = () => {
+  const { createUserEmailPassword } = useContext(AuthContext)
+  const emailUse = () => toast("Email Already Use!");
+  const missingPassword = () => toast("Missing Password!");
+  const register = () => toast("Sucsessfully Register!");
+  const handelUserRegistration = e => {
+    e.preventDefault()
+    const fname = e.target.fname.value
+    const email = e.target.email.value
+    const password = e.target.password.value
+    const photo_url = e.target.profile.value
+
+    createUserEmailPassword(email, password)
+      .then((userCredential) => {
+        const userInfo = userCredential.user;
+        if (userInfo.email) {
+          register()
+        }
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        if (errorCode === "auth/email-already-in-use") {
+          emailUse()
+        }else if(errorCode === "auth/missing-password") {
+          missingPassword()
+        }
+
+      });
+
+  }
+
   return (
     <div className='mt-72 lg:mx-16 mx-2'>
-
-
-
+    <ToastContainer />
       <div className=' lg:flex lg:flex-row-reverse gap-10 w-full border border-red-500 rounded-2xl'>
-       
-
-
         <div className='w-full bg-white rounded-2xl  h-full lg:mt-12'>
-
-
-
-          <form className="grid grid-cols-1 gap-4 mt-8 md:grid-cols-2 px-12">
+          <form onSubmit={handelUserRegistration} className="grid grid-cols-1 gap-4 mt-8 md:grid-cols-2 px-12">
             <div>
               <label className="block mb-2 text-sm text-gray-600 dark:text-gray-200">First Name</label>
-              <input type="text" placeholder="Enter bride or Groom name" className="input input-bordered w-full max-w-xs" />
+              <input name='fname' type="text" placeholder="Enter bride or Groom name" className="input input-bordered w-full max-w-xs" />
             </div>
 
             <div>
               <label className="block mb-2 text-sm text-gray-600 dark:text-gray-200">Gender</label>
 
-              <select className="select w-full max-w-xs">
+              <select name='gender' className="select w-full max-w-xs">
                 <option disabled selected>Gender</option>
                 <option>Homer</option>
                 <option>Marge</option>
@@ -38,7 +66,7 @@ const Register = () => {
 
             <div>
               <label className="block mb-2 text-sm text-gray-600 dark:text-gray-200">Religion</label>
-              <select className="select w-full max-w-xs">
+              <select name='gender' className="select w-full max-w-xs">
                 <option disabled selected>Religion</option>
                 <option>Homer</option>
                 <option>Marge</option>
@@ -51,17 +79,17 @@ const Register = () => {
 
             <div>
               <label className="block mb-2 text-sm text-gray-600 dark:text-gray-200">User ID</label>
-              <input type="text" placeholder="Enter your phone number" className="input input-bordered w-full max-w-xs" />
+              <input name='email' type="email" placeholder="Enter your email" className="input input-bordered w-full max-w-xs" />
             </div>
 
             <div>
               <label className="block mb-2 text-sm text-gray-600 dark:text-gray-200">Password</label>
-              <input type="text" placeholder="Password" className="input input-bordered w-full max-w-xs" />
+              <input name='password' type="text" placeholder="Password" className="input input-bordered w-full max-w-xs" />
             </div>
 
             <div>
               <label className="block mb-2 text-sm text-gray-600 dark:text-gray-200">Profile Picture</label>
-              <input type="file" className="file-input w-full max-w-xs" />
+              <input name='profile' type="file" className="file-input w-full max-w-xs" />
             </div>
 
             <div>
@@ -69,14 +97,14 @@ const Register = () => {
             </div>
 
 
-             <button className='w-48 h-12 rounded-full bg-red-500 text-white mt-4'>Submit</button>
+            <button type='submit' className='w-48 h-12 rounded-full bg-red-500 text-white mt-4'>Submit</button>
 
 
 
             <span className='pt-8'>Already Have Account   <Link to='/login' className='text-red-500 ml-2'>Login</Link></span>
 
-             <span className='pt-8'>Already Registered   <Link to='/active-account' className='text-red-500 ml-2'>Active Account</Link></span>
-            
+            <span className='pt-8'>Already Registered   <Link to='/active-account' className='text-red-500 ml-2'>Active Account</Link></span>
+
 
 
 
@@ -87,9 +115,9 @@ const Register = () => {
         </div>
 
 
-         {/* left side */}
+        {/* left side */}
 
-         <div className='lg:w-[300px] w-full h-full bg-white p-6 rounded-2xl lg:block hidden'>
+        <div className='lg:w-[300px] w-full h-full bg-white p-6 rounded-2xl lg:block hidden'>
           <h1 className='text-2xl font-medium text-red-500'>Why register in borbibi.com?</h1>
           <div className='flex flex-col gap-3 mt-6'>
             <div className='flex gap-1 items-center'>
@@ -176,23 +204,8 @@ const Register = () => {
             <h1 className='text-2xl font-semibold mt-4 text-red-500'>Office:</h1>
             <p className='text-black text-[15px] mt-4'>BorBibi.com House# 29, Nazim Bhaban, Board Bazar, National university, Gazipur-1704.</p>
           </div>
-
-
         </div>
-
-
-
-
       </div>
-
-
-
-
-
-
-
-
-
     </div>
   )
 }

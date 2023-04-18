@@ -1,17 +1,31 @@
+import { sendPasswordResetEmail } from 'firebase/auth'
 import React from 'react'
+import { useContext } from 'react'
 import { Link } from 'react-router-dom'
+import { AuthContext } from '../../Context/AuthContext'
 
 function ForgetPassword() {
+    const { sendPassword} = useContext(AuthContext)
+
+    const sendPasswordMail = (e) => {
+        e.preventDefault()
+        const email = e.target.email.value
+        sendPassword(email)
+        console.log(email)
+    }
+
+
+
   return (
     <div className='mt-56 bg-white'>
 
-    <form className="flex justify-center items-center lg:p-28 ">
+    <form onSubmit={sendPasswordMail} className="flex justify-center items-center lg:p-28 ">
         <div className='lg:w-[500px] lg:h-[400px] w-full h-full lg:bg-gray-200 rounded-2xl'>
 
             <div className='flex flex-col justify-center items-center lg:mt-16 mt-6'>
                 <div>
                     <label className="block mb-2 text-xl text-gray-600 dark:text-gray-200">User ID:</label>
-                    <input type="text" placeholder="Enter your mobile number" className="block lg:w-[400px] w-[250px] px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-red-500 rounded-full dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" />
+                    <input type="email" name='email' placeholder="Enter your email" className="block lg:w-[400px] w-[250px] px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-red-500 rounded-full dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" />
                 </div>
 
 
