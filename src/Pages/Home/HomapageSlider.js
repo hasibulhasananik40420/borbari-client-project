@@ -3,6 +3,7 @@ import Slider from "react-slick";
 import "./HomepageSlider.css";
 import Typewriter from "typewriter-effect";
 import "./SearchBox.css";
+import Tracker from "./Tracker";
 
 const HomapageSlider = () => {
   var settings = {
@@ -35,62 +36,7 @@ const HomapageSlider = () => {
               The World.
             </span>
 
-            <div className="lg:mt-3 lg:w-[86%] w-full lg:mb-8 lg:block hidden">
-
-
-              <div className="lg:flex lg:flex-row lg:justify-center lg:items-center lg:gap-6 mt-6 w-full lg:h-[150px] h-full flex flex-col justify-center items-center gap-3 bg-[#00000a] opacity-70  rounded-full ">
-
-                <select className="select select-error lg:w-[220px] max-w-xs bg-white text-black">
-                  <option selected>I'm looking for a</option>
-                  <option>Strapi</option>
-                  <option>Ghost</option>
-
-                </select>
-
-                <div className='lg:flex items-center gap-16'>
-
-                  <span className='lg:w-[240px] w-[270px] flex'>
-                    <div className='w-full'>
-                      <select className="select-secondary select w-full max-w-xs rounded-r-none bg-white text-black">
-                        <option disabled selected>Aged</option>
-                        <option>Homer</option>
-                        <option>Marge</option>
-
-                      </select>
-                    </div>
-                    <div className='w-full'>
-                      <select className="select-secondary select bg-white text-black w-full max-w-xs rounded-l-none">
-                        <option disabled selected>Aged</option>
-                        <option>Homer</option>
-                        <option>Marge</option>
-
-                      </select>
-                    </div>
-
-                  </span>
-                </div>
-
-
-                <select className="select select-error lg:w-[220px] max-w-xs bg-white text-black">
-                  <option selected>Religion</option>
-                  <option>Strapi</option>
-                  <option>Ghost</option>
-
-                </select>
-
-                <select className="select select-error lg:w-[220px] max-w-xs bg-white text-black">
-                  <option selected>Marital Status</option>
-                  <option>Strapi</option>
-                  <option>Ghost</option>
-
-                </select>
-
-
-              </div>
-
-
-
-            </div>
+            <Tracker/>
           </div>
         </div>
 
@@ -113,62 +59,7 @@ const HomapageSlider = () => {
               Thousands of happy marriages happened through us.You could be
               next!
             </span>
-            <div className="lg:mt-3 lg:w-[86%] w-full lg:mb-8 lg:block hidden">
-
-
-              <div className="lg:flex lg:flex-row lg:justify-center lg:items-center lg:gap-6 mt-6 w-full lg:h-[150px] h-full flex flex-col justify-center items-center gap-3 bg-[#00000a] opacity-70  rounded-full ">
-
-                <select className="select select-error lg:w-[220px] max-w-xs bg-white text-black">
-                  <option selected>I'm looking for a</option>
-                  <option>Strapi</option>
-                  <option>Ghost</option>
-
-                </select>
-
-                <div className='lg:flex items-center gap-16'>
-
-                  <span className='lg:w-[240px] w-[270px] flex'>
-                    <div className='w-full'>
-                      <select className="select-secondary select w-full max-w-xs rounded-r-none bg-white text-black">
-                        <option disabled selected>Aged</option>
-                        <option>Homer</option>
-                        <option>Marge</option>
-
-                      </select>
-                    </div>
-                    <div className='w-full'>
-                      <select className="select-secondary select bg-white text-black w-full max-w-xs rounded-l-none">
-                        <option disabled selected>Aged</option>
-                        <option>Homer</option>
-                        <option>Marge</option>
-
-                      </select>
-                    </div>
-
-                  </span>
-                </div>
-
-
-                <select className="select select-error lg:w-[220px] max-w-xs bg-white text-black">
-                  <option selected>Religion</option>
-                  <option>Strapi</option>
-                  <option>Ghost</option>
-
-                </select>
-
-                <select className="select select-error lg:w-[220px] max-w-xs bg-white text-black">
-                  <option selected>Marital Status</option>
-                  <option>Strapi</option>
-                  <option>Ghost</option>
-
-                </select>
-
-
-              </div>
-
-
-
-            </div>
+            <Tracker/>
           </div>
 
         </div>

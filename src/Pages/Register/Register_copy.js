@@ -1,93 +1,69 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { RxDot } from 'react-icons/rx';
 import { BsTelephone } from 'react-icons/bs';
-import { Link, Navigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../../Context/AuthContext';
 import { ToastContainer, toast } from 'react-toastify';
 import { API_URL } from "../../Context/API_URL";
 import 'react-toastify/dist/ReactToastify.css';
-import { useForm } from 'react-hook-form';
 
 const Register = () => {
-  const { user } = useContext(AuthContext)
-  const [error, setError] = useState('');
-  const { register, handleSubmit, formState: { errors } } = useForm();
   const imgageHostKey = process.env.REACT_APP_imgbbAp;
-  const { createUserEmailPassword, updateUserInfo } = useContext(AuthContext)
-
-  const min = 100000;
-  const max = 999999;
-  const profile_randon = Math.floor(Math.random() * (max - min + 1)) + min;
-  const profile_id = `BB-${profile_randon}`
-
-  const verified = false
-
-  if (user?.uid) {
-    return <Navigate to='/'></Navigate>
-  }
+  const { createUserEmailPassword } = useContext(AuthContext)
+  const emailUse = () => toast("Email Already Use!");
+  const missingPassword = () => toast("Missing Password!");
+  const register = () => toast("Sucsessfully Register!");
 
 
-  const handleSignUp = (data) => {
-    setError('');
 
-    const image = data.image[0];
-    const formData = new FormData();
-    formData.append('image', image);
-    const url = `https://api.imgbb.com/1/upload?key=6a56f720ef5af169c2b3789d5fb3086f`
-    fetch(url, {
+  const handelUserRegistration = e => {
+    e.preventDefault()
+    const name = e.target.fname.value
+    const email = e.target.email.value
+    const password = e.target.password.value
+    const gender = e.target.gender.value
+    const religion = e.target.religion.value
+
+    const min = 100000; 
+    const max = 999999; 
+    const profile_randon = Math.floor(Math.random() * (max - min + 1)) + min;
+
+    const addUser = {
+      profile_id: `BB-${profile_randon}`,
+      name,
+      email,
+      gender,
+      religion,
+      password,
+    }
+    fetch(`${API_URL}users`, {
       method: 'POST',
-      body: formData
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify(addUser)
     })
-      .then(res => res.json())
-      .then(imgData => {
-        if (imgData.success) {
-          createUserEmailPassword(data.email, data.password)
-            .then(result => {
-              const userInfo = {
-                displayName: data.name,
-                photoURL: imgData.data.url
+      .then(response => response.json())
+      .then(data => console.log(data))
+      .catch(error => console.error(error));
 
-
-              }
-              updateUserInfo(userInfo)
-                .then(() => {
-                  saveUser(
-                    data.name,
-                    data.email,
-                    data.religion,
-                    data.gender,
-                    data.password,
-                    { photoURL: imgData?.data?.url }
-                  );
-                })
-                .catch(err => console.log(err));
-            })
-            .catch(error => {
-              setError(error.message)
-            });
+    createUserEmailPassword(email, password)
+      .then((userCredential) => {
+        const userInfo = userCredential.user;
+        if (userInfo.email) {
+          register()
+        }
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        if (errorCode === "auth/email-already-in-use") {
+          emailUse()
+        } else if (errorCode === "auth/missing-password") {
+          missingPassword()
         }
 
-      })
+      });
 
-
-
-    const saveUser = (name, email, religion, gender, password, photoURL) => {
-      const notify = () => toast("Registration Successful!");
-      const user = {profile_id, name, email, religion, gender, password, photoURL, verified };
-      fetch(`${API_URL}users`, {
-        method: 'POST',
-        headers: {
-          'content-type': 'application/json'
-        },
-        body: JSON.stringify(user)
-      })
-        .then(res => res.json())
-        .then(data => {
-          notify()
-          return <Navigate to="/"></Navigate >;
-        })
-    }
 
   }
 
@@ -96,25 +72,16 @@ const Register = () => {
       <ToastContainer />
       <div className=' lg:flex lg:flex-row-reverse gap-10 w-full border border-red-500 rounded-2xl'>
         <div className='w-full bg-white rounded-2xl  h-full lg:mt-12'>
-          <form onSubmit={handleSubmit(handleSignUp)} className="grid grid-cols-1 gap-4 mt-8 md:grid-cols-2 px-12">
+          <form onSubmit={handelUserRegistration} className="grid grid-cols-1 gap-4 mt-8 md:grid-cols-2 px-12">
             <div>
               <label className="block mb-2 text-sm text-gray-600 dark:text-gray-200">First Name</label>
-              <input
-                {...register("name", {
-                  required: "Name is required",
-                })}
-                type="text" placeholder="Enter bride or Groom name" className="input input-bordered w-full max-w-xs" />
-                {errors.name && <p className='text-red-500'>{errors.name.message}</p>}
+              <input name='fname' type="text" placeholder="Enter bride or Groom name" className="input input-bordered w-full max-w-xs" />
             </div>
 
             <div>
               <label className="block mb-2 text-sm text-gray-600 dark:text-gray-200">Gender</label>
 
-              <select
-                {...register("gender", {
-                  required: "Gender is required",
-                })}
-                className="select w-full max-w-xs">
+              <select name='gender' className="select w-full max-w-xs">
                 <option disabled selected>Gender</option>
                 <option>Male</option>
                 <option>Female</option>
@@ -124,12 +91,7 @@ const Register = () => {
 
             <div>
               <label className="block mb-2 text-sm text-gray-600 dark:text-gray-200">Religion</label>
-              <select
-                {...register("religion", {
-                  required: "Religion is required",
-                })}
-
-                className="select w-full max-w-xs">
+              <select name='religion' className="select w-full max-w-xs">
                 <option disabled selected>Islam</option>
                 <option>Islam</option>
                 <option>Homer</option>
@@ -143,22 +105,12 @@ const Register = () => {
 
             <div>
               <label className="block mb-2 text-sm text-gray-600 dark:text-gray-200">User ID</label>
-              <input
-                {...register("email", {
-                  required: "Email is required",
-                })}
-                type="email" placeholder="Enter your email" className="input input-bordered w-full max-w-xs" />
-                {errors.email && <p className='text-red-500'>{errors.email.message}</p>}
+              <input name='email' type="email" placeholder="Enter your email" className="input input-bordered w-full max-w-xs" />
             </div>
 
             <div>
               <label className="block mb-2 text-sm text-gray-600 dark:text-gray-200">Password</label>
-              <input
-                {...register("password", {
-                  required: "Password is required",
-                })}
-                type="text" placeholder="Password" className="input input-bordered w-full max-w-xs" />
-                {errors.password && <p className='text-red-500'>{errors.password.message}</p>}
+              <input name='password' type="text" placeholder="Password" className="input input-bordered w-full max-w-xs" />
             </div>
 
             <div>
