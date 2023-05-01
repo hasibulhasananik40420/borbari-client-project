@@ -192,6 +192,29 @@ const Register = () => {
                 type="file" className="file-input w-full max-w-xs" />
             </div>
 
+
+            <div>
+              <label className="block mb-2 text-sm text-gray-600 dark:text-gray-200">Age</label>
+              <input
+                {...register("password", {
+                  required: "Password is required",
+                })}
+                type="text" placeholder="Password" className="input input-bordered w-full max-w-xs" />
+                {errors.password && <p className='text-red-500'>{errors.password.message}</p>}
+            </div>
+
+
+            <div>
+              <label className="block mb-2 text-sm text-gray-600 dark:text-gray-200">Phone</label>
+              <input
+                {...register("password", {
+                  required: "Password is required",
+                })}
+                type="text" placeholder="Password" className="input input-bordered w-full max-w-xs" />
+                {errors.password && <p className='text-red-500'>{errors.password.message}</p>}
+            </div>
+
+
             <div>
               <h1 className='text-[13px] mt-7'>I have read and agree to the T&C and <span className='text-red-500'>Privacy Policy</span></h1>
             </div>
