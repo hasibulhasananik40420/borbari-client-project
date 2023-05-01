@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const Special2 = () => {
+const RegistrationHome2 = () => {
     return (
         <div className='mt-10 overflow-hidden relative z-50'>
 
@@ -106,4 +106,4 @@ const Special2 = () => {
     )
 }
 
-export default Special2
+export default RegistrationHome2

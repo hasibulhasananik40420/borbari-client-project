@@ -1,8 +1,39 @@
 import React from 'react'
 import { RxDot } from 'react-icons/rx';
 import { BsTelephone } from 'react-icons/bs';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import { useContext } from 'react';
+import { AuthContext } from '../../Context/AuthContext';
+
+
 const Login = () => {
+  const navigate = useNavigate()
+  const [error, setError] = useState()
+  const [errorCode, setErrorCode] = useState()
+  const { users, userLogin } = useContext(AuthContext)
+  const location = useLocation()
+  const form = location?.state?.from?.pathname || '/';
+
+  const handelSingIn = (e) => {
+    e.preventDefault()
+    const from = e.target
+    const email = from.email.value
+    const password = from.password.value
+    userLogin(email, password)
+      .then((singIn) => {
+        const user = singIn.user;
+        navigate(form, { replace: true })
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        setError(errorMessage)
+        setErrorCode(errorCode)
+      });
+    from.reset()
+  }
+
   return (
     <div className='mt-72 lg:mx-16 mx-2'>
 
@@ -16,34 +47,34 @@ const Login = () => {
 
 
 
-          <form className="flex justify-center items-center lg:p-28 ">
+          <form onSubmit={handelSingIn} className="flex justify-center items-center lg:p-28 ">
             <div className='lg:w-[500px] lg:h-[400px] w-full h-full lg:bg-gray-200 rounded-2xl'>
 
               <div className='flex flex-col justify-center items-center lg:mt-16 mt-6'>
                 <div>
                   <label className="block mb-2 text-xl text-gray-600 dark:text-gray-200">User ID:</label>
-                  <input type="text" placeholder="Enter your mobile number" className="block lg:w-[400px] w-[250px] px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-full dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" />
+                  <input name='email' type="email" placeholder="Enter your email" className="block lg:w-[400px] w-[250px] px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-full dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" />
                 </div>
 
                 <div className='mt-6'>
                   <label className="block mb-2 text-xl text-gray-600 dark:text-gray-200">Password</label>
-                  <input type="text" placeholder="Enter password" className="block lg:w-[400px] w-[250px] px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-full dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" />
+                  <input name='password' type="text" placeholder="Enter password" className="block lg:w-[400px] w-[250px] px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-full dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" />
                 </div>
 
-                <button className='w-48 h-12 rounded-full bg-red-500 text-white mt-8'>Submit</button>
+                <button type='submit' className='w-48 h-12 rounded-full bg-red-500 text-white mt-8'>Submit</button>
               </div>
 
 
             </div>
           </form>
 
-           <div className='lg:flex justify-between lg:mx-8 mb-8'>
-             <h1 className='text-sm text-center lg:text-left mt-4 lg:mt-0'>Lost Password?  <Link to='/forget-password' className='text-red-500 ml-1'>Forgot Password</Link></h1>
-             
-             <h1 className='text-sm text-center lg:text-left mt-4 lg:mt-0'>New Here?  <Link to='/register' className='text-red-500 ml-1'> Register Now</Link></h1>
-             
-             <h1 className='text-sm text-center lg:text-left mt-4 lg:mt-0'>Didn't Activated?  <Link to='/forget-password' className='text-red-500 ml-1'> Active Account</Link></h1>
-           </div>
+          <div className='lg:flex justify-between lg:mx-8 mb-8'>
+            <h1 className='text-sm text-center lg:text-left mt-4 lg:mt-0'>Lost Password?  <Link to='/forget-password' className='text-red-500 ml-1'>Forgot Password</Link></h1>
+
+            <h1 className='text-sm text-center lg:text-left mt-4 lg:mt-0'>New Here?  <Link to='/register' className='text-red-500 ml-1'> Register Now</Link></h1>
+
+            <h1 className='text-sm text-center lg:text-left mt-4 lg:mt-0'>Didn't Activated?  <Link to='/forget-password' className='text-red-500 ml-1'> Active Account</Link></h1>
+          </div>
 
         </div>
 

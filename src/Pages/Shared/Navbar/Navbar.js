@@ -10,10 +10,21 @@ import { FaYoutube } from "react-icons/fa";
 import { FaRegUser } from "react-icons/fa";
 import { FaHeadphonesAlt } from "react-icons/fa";
 import { Link, useLocation } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../../../Context/AuthContext";
 
 const Navbar = () => {
 
   const location = useLocation()
+  const { user, logOut } = useContext(AuthContext)
+
+  const handelLogOut = () => {
+    logOut()
+      .then(result => {
+        const user = result.user
+      }).catch((error) => {
+      });
+  }
 
   if (location.pathname === '/') {
     return (
@@ -105,15 +116,26 @@ const Navbar = () => {
             </div>
           </div>
           {/* thired section */}
-
           <div className="lg:flex lg:flex-row lg:gap-4 flex flex-col justify-center items-center gap-3 mt-8">
             <button className="text-white w-32 h-12 bg-transparent rounded-full border-2 text-[14px] flex justify-center items-center gap-2 ">
-              <FaRegUser />
-              <Link to='/login'> Login</Link>
+              {user?.uid ?
+                user?.uid &&
+                <Link onClick={handelLogOut} > Log out</Link>
+                :
+                <>
+                  <FaRegUser />
+                  <Link to='/login'> Login</Link>
+                </>
+              }
             </button>
             <button className="text-white w-32 h-12 bg-transparent rounded-full border-2 text-[14px] flex justify-center items-center gap-2">
               <FaHeadphonesAlt />
-              <Link to='/register'> Register</Link>
+              {user?.uid ?
+                user?.uid &&
+                <Link to='#'> Go to profile</Link>
+                :
+                <Link to='/register'> Register</Link>
+              }
             </button>
           </div>
 
@@ -284,12 +306,24 @@ const Navbar = () => {
 
           <div className="lg:flex lg:flex-row lg:gap-4 flex flex-col justify-center items-center gap-3 mt-8">
             <button className="text-white w-32 h-12 bg-transparent rounded-full border-2 text-[14px] flex justify-center items-center gap-2 ">
-              <FaRegUser />
-              <Link to='/login'> Login</Link>
+              {user?.uid ?
+                user?.uid &&
+                <Link onClick={handelLogOut} > Log out</Link>
+                :
+                <>
+                  <FaRegUser />
+                  <Link to='/login'> Login</Link>
+                </>
+              }
             </button>
             <button className="text-white w-32 h-12 bg-transparent rounded-full border-2 text-[14px] flex justify-center items-center gap-2">
               <FaHeadphonesAlt />
-              <Link to='/register'> Register</Link>
+              {user?.uid ?
+                user?.uid &&
+                <Link to='#'> Go to profile</Link>
+                :
+                <Link to='/register'> Register</Link>
+              }
             </button>
           </div>
 
