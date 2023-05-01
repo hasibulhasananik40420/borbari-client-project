@@ -122,6 +122,29 @@ const Register = () => {
 
             </div>
 
+
+            <div>
+              <label className="block mb-2 text-sm text-gray-600 dark:text-gray-200">Religion</label>
+              <select
+                {...register("religion", {
+                  required: "Religion is required",
+                })}
+
+                className="select w-full max-w-xs">
+                <option disabled selected>Islam</option>
+                <option>Islam</option>
+                <option>Homer</option>
+                <option>Marge</option>
+                <option>Bart</option>
+                <option>Lisa</option>
+                <option>Maggie</option>
+              </select>
+
+            </div>
+
+
+
+
             <div>
               <label className="block mb-2 text-sm text-gray-600 dark:text-gray-200">Religion</label>
               <select

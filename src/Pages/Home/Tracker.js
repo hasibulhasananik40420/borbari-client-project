@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form';
 import { API_URL } from '../../Context/API_URL';
+import { Link } from 'react-router-dom';
 
 const Tracker = () => {
     const [users, setUsers] = useState([]);
@@ -38,11 +39,11 @@ const Tracker = () => {
 
 
     return (
-        <form onChange={handleSubmit(handleHomeSearch)} className="lg:mt-3 lg:w-[86%] w-full lg:mb-8 lg:block hidden">
+        <form onChange={handleSubmit(handleHomeSearch)} className="lg:mt-3 lg:w-[90%] w-full lg:mb-8 lg:block hidden">
 
 
-            <div className="lg:flex lg:flex-row lg:justify-center lg:items-center lg:gap-6 mt-6 w-full lg:h-[150px] h-full flex flex-col justify-center items-center gap-3 bg-[#00000a] opacity-70  rounded-full ">
-
+            <div className="lg:flex lg:flex-row lg:justify-center lg:pl-3 lg:items-center lg:gap-6 mt-6 w-full lg:h-[150px] h-full flex flex-col justify-center items-center gap-3 bg-[#00000a] opacity-70  rounded-full border border-red-600">
+               
                 <select {...register("groom")} className="select select-error lg:w-[220px] max-w-xs bg-white text-black">
                     <option >I'm looking for a</option>
                     <option selected>Groom</option>
@@ -82,6 +83,13 @@ const Tracker = () => {
                     <option>Ghost</option>
 
                 </select>
+              
+               <div className='bg-white h-full w-full rounded-r-full py-10 text-left'>
+                <button className='bg-red-500 text-white w-32 h-11 rounded-r-full'>Let's Begin</button>
+              
+              
+                <Link to='/search'> <h1 className='text-red-500 font-sans mt-2 ml-2'>Advanced search</h1></Link>
+               </div>
 
 
             </div>

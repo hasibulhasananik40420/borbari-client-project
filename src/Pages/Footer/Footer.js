@@ -10,7 +10,7 @@ const Footer = () => {
             <div className='lg:flex lg:flex-row lg:justify-center  lg:items-center lg:gap-16 flex flex-col gap-6 justify-center items-center text-white lg:px-10 px-2 pt-56'>
 
                 <div>
-                    <button className='bg-gray-950 rounded-full border h-10 w-36'>HELP & SUPPORT</button>
+                    <button className='bg-gray-950 rounded-full border h-10 w-36 hover:bg-white hover:text-black duration-300'>HELP & SUPPORT</button>
                 </div>
 
                 <div className=''>
@@ -30,7 +30,7 @@ const Footer = () => {
 
 
                 <div>
-                    <button className='bg-gray-950 rounded-full border h-10 w-36'>24X7 LIVE HELP </button>
+                    <button className='bg-gray-950 rounded-full border h-10 w-36 hover:bg-white hover:text-black duration-300'>24X7 LIVE HELP </button>
                 </div>
 
 
