@@ -169,9 +169,13 @@ const RegistrationHome = () => {
 
                             </div>
 
-                            <div>
+                            <div className='flex items-center gap-2'>
+                            <h1>
+                            <input type="checkbox" checked="checked" className="checkbox" />
+                            </h1>
+                           <h1> I have read and agree to the <span className='text-red-400'>T&C</span> and <span className='text-red-400'>Privacy Policy</span></h1>
 
-                                I have read and agree to the <span className='text-red-400'>T&C</span> and <span className='text-red-400'>Privacy Policy</span>
+                           
                             </div>
 
                         </div>

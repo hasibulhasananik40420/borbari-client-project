@@ -40,7 +40,7 @@ const HighlightedProfileCard = ({ users }) => {
 
             </div>
             <div className='flex justify-center p-2'>
-                <button onClick={() => handleDetails()} className="w-32 h-10 bg-blue-500 text-white rounded-full shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
+                <button onClick={() => handleDetails()} className="w-32 h-10 bg-blue-500 text-white rounded-full shadow-md hover:bg-white hover:text-black hover:border hover:border-red-500 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 duration-300">
                     View Profile
                 </button>
             </div>
