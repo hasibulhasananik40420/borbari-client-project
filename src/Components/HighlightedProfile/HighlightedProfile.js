@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import HighlightedProfileCard from './HighlightedProfileCard'
 import { API_URL } from "../../Context/API_URL";
 
+
 const HighlightedProfile = () => {
 
     const [users, setUsers] = useState([]);

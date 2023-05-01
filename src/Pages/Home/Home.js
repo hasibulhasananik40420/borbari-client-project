@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import HomapageSlider from "./HomapageSlider";
 import Weddings from "./Weddings";
 import LatestNews from "./LatestNews";
@@ -7,11 +7,13 @@ import HighlightedProfile from "../../Components/HighlightedProfile/HighlightedP
 import RegistrationHome from "./RegistrationHome";
 
 const Home = () => {
+
+
   return (
     <div>
       <HomapageSlider />
       <RegistrationHome/>
-      <HighlightedProfile/>
+      <HighlightedProfile />
       <Weddings />
       <LatestNews />
       <Happiness />
