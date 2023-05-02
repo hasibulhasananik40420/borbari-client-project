@@ -13,6 +13,7 @@ const RegistrationHome = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const imgageHostKey = process.env.REACT_APP_imgbbAp;
     const { createUserEmailPassword, updateUserInfo } = useContext(AuthContext)
+    const [isChecked, setIsChecked] = useState(false);
 
     const min = 100000;
     const max = 999999;
@@ -25,6 +26,9 @@ const RegistrationHome = () => {
         return <Navigate to='/'></Navigate>
     }
 
+    const handleCheckboxChange = (event) => {
+        setIsChecked(event.target.checked);
+      }
 
     const handleSignUp = (data) => {
         setError('');
@@ -170,17 +174,17 @@ const RegistrationHome = () => {
                             </div>
 
                             <div className='flex items-center gap-2'>
-                            <h1>
-                            <input type="checkbox" checked="checked" className="checkbox" />
-                            </h1>
-                           <h1> I have read and agree to the <span className='text-red-400'>T&C</span> and <span className='text-red-400'>Privacy Policy</span></h1>
+                                <h1>
+                                    <input type="checkbox" className="checkbox" onChange={handleCheckboxChange} />
+                                </h1>
+                                <h1> I have read and agree to the <span className='text-red-400'>T&C</span> and <span className='text-red-400'>Privacy Policy</span></h1>
 
-                           
+
                             </div>
 
                         </div>
                         <div className='w-full mt-16 flex justify-center'>
-                            <button type='submit' className='bg-red-500 w-32 h-12 rounded-full duration-500 text-white '>Submit</button>
+                            <button type='submit' disabled={!isChecked} className='w-48 h-12 rounded-full bg-red-500 text-white mt-4' style={{ 'backgroundColor': !isChecked ? 'gray' : 'red' }}>Submit</button>
                         </div>
                     </form>
 

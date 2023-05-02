@@ -28,7 +28,6 @@ const Tracker = () => {
     }, [searchInfo]);
 
 
-    console.log(searchInfo)
 
     const aged = [];
     for (let i = 19; i <= 70; i++) {
