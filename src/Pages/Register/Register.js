@@ -15,6 +15,7 @@ const Register = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
   const imgageHostKey = process.env.REACT_APP_imgbbAp;
   const { createUserEmailPassword, updateUserInfo } = useContext(AuthContext)
+  const [isChecked, setIsChecked] = useState(false);
 
   const min = 100000;
   const max = 999999;
@@ -27,6 +28,9 @@ const Register = () => {
     return <Navigate to='/'></Navigate>
   }
 
+  const handleCheckboxChange = (event) => {
+    setIsChecked(event.target.checked);
+  }
 
   const handleSignUp = (data) => {
     setError('');
@@ -74,7 +78,7 @@ const Register = () => {
 
     const saveUser = (name, email, religion, gender, password, photoURL) => {
       const notify = () => toast("Registration Successful!");
-      const user = {profile_id, name, email, religion, gender, password, photoURL, verified };
+      const user = { profile_id, name, email, religion, gender, password, photoURL, verified };
       fetch(`${API_URL}users`, {
         method: 'POST',
         headers: {
@@ -104,7 +108,7 @@ const Register = () => {
                   required: "Name is required",
                 })}
                 type="text" placeholder="Enter bride or Groom name" className="input input-bordered w-full max-w-xs" />
-                {errors.name && <p className='text-red-500'>{errors.name.message}</p>}
+              {errors.name && <p className='text-red-500'>{errors.name.message}</p>}
             </div>
 
             <div>
@@ -171,7 +175,7 @@ const Register = () => {
                   required: "Email is required",
                 })}
                 type="email" placeholder="Enter your email" className="input input-bordered w-full max-w-xs" />
-                {errors.email && <p className='text-red-500'>{errors.email.message}</p>}
+              {errors.email && <p className='text-red-500'>{errors.email.message}</p>}
             </div>
 
             <div>
@@ -181,7 +185,7 @@ const Register = () => {
                   required: "Password is required",
                 })}
                 type="text" placeholder="Password" className="input input-bordered w-full max-w-xs" />
-                {errors.password && <p className='text-red-500'>{errors.password.message}</p>}
+              {errors.password && <p className='text-red-500'>{errors.password.message}</p>}
             </div>
 
             <div>
@@ -200,7 +204,7 @@ const Register = () => {
                   required: "Password is required",
                 })}
                 type="text" placeholder="Password" className="input input-bordered w-full max-w-xs" />
-                {errors.password && <p className='text-red-500'>{errors.password.message}</p>}
+              {errors.password && <p className='text-red-500'>{errors.password.message}</p>}
             </div>
 
 
@@ -211,16 +215,22 @@ const Register = () => {
                   required: "Password is required",
                 })}
                 type="text" placeholder="Password" className="input input-bordered w-full max-w-xs" />
-                {errors.password && <p className='text-red-500'>{errors.password.message}</p>}
+              {errors.password && <p className='text-red-500'>{errors.password.message}</p>}
             </div>
 
 
-            <div>
-              <h1 className='text-[13px] mt-7'>I have read and agree to the T&C and <span className='text-red-500'>Privacy Policy</span></h1>
+            <div className='flex items-center gap-2'>
+              <h1>
+                <input type="checkbox" className="checkbox" onChange={handleCheckboxChange} />
+              </h1>
+              <h1> I have read and agree to the <span className='text-red-400'>T&C</span> and <span className='text-red-400'>Privacy Policy</span></h1>
+
+
             </div>
 
+            <button type='submit' disabled={!isChecked} className='w-48 h-12 rounded-full bg-red-500 text-white mt-4' style={{ 'backgroundColor': !isChecked ? 'gray' : 'red' }}>Submit</button>
 
-            <button type='submit' className='w-48 h-12 rounded-full bg-red-500 text-white mt-4'>Submit</button>
+            {/* <button type='submit' disabled={!isChecked} className='w-48 h-12 rounded-full bg-red-500 text-white mt-4'>Submit</button> */}
 
 
 
