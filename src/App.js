@@ -24,6 +24,7 @@ import WorkingProgess from './Pages/WorkingProgess/WorkingProgess';
 import SingleProfileDetails from './Components/HighlightedProfile/SingleProfileDetails';
 import MatrimoniProfile from './Pages/MatrimoniProfile/MatrimoniProfile';
 import NotFoundPage from './Pages/NotFoundPage/NotFoundPage';
+import SingleBlog from './Pages/Blog/SingleBlog';
 
 const App = () => {
   return (
@@ -43,6 +44,7 @@ const App = () => {
         <Route path="/forget-password" element={<ForgetPassword />} />
         <Route path="/working-progess" element={<WorkingProgess />} />
         <Route path="/matrimoni-profile" element={<MatrimoniProfile />} />
+        <Route path="/single-blogs" element={<SingleBlog />} />
         <Route path="/single-profile-detail/:id" element={<SingleProfileDetails />} />
         <Route path="*" element={<NotFoundPage />} />
 

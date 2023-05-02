@@ -1,10 +1,11 @@
 import React from 'react'
-import { Navigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 const Blog = () => {
+    const navigate= useNavigate()
 
     const handleBlog = () => {
-        Navigate('/SingleBlog')
+        navigate('/single-blogs')
         console.log('click block')
     }
 
@@ -25,7 +26,7 @@ const Blog = () => {
                             <h1 className='text-xl font-semibold text-[#737373] mt-2'>পাত্র/পাত্রী খুঁজতে বরবিবি.ডট কম</h1>
                             <p className='text-base #737373 mt-4'>আসসালামু আলাইকুম ওয়া রহমাতুল্লাহি</p>
 
-                            <button onClick={() => handleBlog()} className='h-12 w-36 rounded-full text-[#737373] font-medium border-2 border-[#737373] hover:border-0 hover:bg-red-600 duration-500 hover:text-white mt-6'>Read More..</button>
+                            <button onClick={()=>handleBlog()} className='h-12 w-36 rounded-full text-[#737373] font-medium border-2 border-[#737373] hover:border-0 hover:bg-red-600 duration-500 hover:text-white mt-6'>Read More..</button>
 
 
                             <div className='absolute left-0 top-0'> <p className='bg-[#000000] opacity-50 text-white p-1 w-32 text-center rounded-sm #737373 font-semibold '>2022-09-01</p></div>
