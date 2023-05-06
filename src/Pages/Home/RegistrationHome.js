@@ -57,6 +57,8 @@ const RegistrationHome = () => {
                                     saveUser(
                                         data.name,
                                         data.email,
+                                        data.age,
+                                        data.phone,
                                         data.religion,
                                         data.gender,
                                         data.password,
@@ -74,9 +76,9 @@ const RegistrationHome = () => {
 
 
 
-        const saveUser = (name, email, religion, gender, password, photoURL) => {
+        const saveUser = (name, email, age, phone, religion, gender, password, photoURL) => {
             const notify = () => toast("Registration Successful!");
-            const user = { profile_id, name, email, religion, gender, password, photoURL, verified };
+            const user = { profile_id, name, email, age, phone, religion, gender, password, photoURL, verified };
             fetch(`${API_URL}users`, {
                 method: 'POST',
                 headers: {
@@ -101,7 +103,7 @@ const RegistrationHome = () => {
                     <h1 className='lg:text-4xl text-2xl font-serif font-bold text-red-500 text-center'>REGISTER NOW FREE</h1>
                     <p className='text-xl font-medium font-sans text-center'>And find your RegistrationHome someone.</p>
 
-                    <form onSubmit={handleSubmit(handleSignUp)}>
+            <form onSubmit={handleSubmit(handleSignUp)}>
                         <div class="grid grid-cols-1 gap-6 mt-8 lg:grid-cols-2">
 
                             <div>
@@ -149,6 +151,24 @@ const RegistrationHome = () => {
                                         required: "Email is required",
                                     })}
                                     type="text" placeholder="Enter your email" class="block w-full border border-red-400 px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white rounded-full dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" />
+                            </div>
+
+                            <div>
+                                <label class="block mb-2 text-sm text-gray-600 dark:text-gray-200">Your Age</label>
+                                <input
+                                    {...register("age", {
+                                        required: "",
+                                    })}
+                                    type="number" placeholder="Enter your Age" class="block w-full border border-red-400 px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white rounded-full dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" />
+                            </div>
+
+                            <div>
+                                <label class="block mb-2 text-sm text-gray-600 dark:text-gray-200">Phone</label>
+                                <input
+                                    {...register("phone", {
+                                        required: "Phone is required",
+                                    })}
+                                    type="text" placeholder="Enter your phone" class="block w-full border border-red-400 px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white rounded-full dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" />
                             </div>
 
 

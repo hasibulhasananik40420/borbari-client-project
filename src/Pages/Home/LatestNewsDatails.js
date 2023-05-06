@@ -1,11 +1,14 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const LatestNewsDetails = ({news}) => {
     const {imageSrc, description, postDate, comments, _id} = news
+    const navigate= useNavigate()
 
 
     const handleDetails = (id) => {
-        alert('This is page is comming son', id)
+        // alert('This is page is comming son', id)
+        navigate('../blog/single-blogs')
     }
     
     return (

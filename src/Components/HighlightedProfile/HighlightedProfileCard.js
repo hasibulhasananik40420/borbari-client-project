@@ -1,22 +1,21 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
+// import { LOCAL_URL } from '../../Context/LOCAL_URL';
+
 
 
 const HighlightedProfileCard = ({ users }) => {
     const { _id, profile_id, name, age, religion, gender, photoURL } = users;
 
     const handleDetails = (id) => {
-        console.log(id, "Click me")
-    }
-
-
-
+        const url = `http://localhost:3000/user/${id}`;
+        window.location.href = url;
+      };
 
     return (
 
         <div className='w-[300px] h-full shadow-xl rounded-lg'>
 
-            <img onClick={() => handleDetails(_id)} className='p-3 rounded w-full h-[300px] cursor-pointer' src={photoURL?.photoURL} alt="" />
+            <img className='p-3 rounded w-full h-[300px] cursor-pointer' src={photoURL?.photoURL} alt="" />
 
             <div className='flex flex-col gap-y-1 px-4 py-2'>
                 <div className='flex justify-between'>
@@ -42,11 +41,9 @@ const HighlightedProfileCard = ({ users }) => {
 
             </div>
             <div className='flex justify-center p-2'>
-            {/* <Link to={`/profile?name=${name}`}> */}
-                <button className="w-32 h-10 bg-blue-500 text-white rounded-full shadow-md hover:bg-white hover:text-black hover:border hover:border-red-500 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 duration-300">
+                <button onClick={()=>handleDetails(_id)} className="w-32 h-10 bg-blue-500 text-white rounded-full shadow-md hover:bg-white hover:text-black hover:border hover:border-red-500 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 duration-300">
                     View Profile
                 </button>
-            {/* </Link> */}
             </div>
         </div>
 

@@ -5,7 +5,7 @@ import Typewriter from "typewriter-effect";
 import "./SearchBox.css";
 import Tracker from "./Tracker";
 
-const HomapageSlider = () => {
+const HomapageSlider = ({filteredData, setData, setUsers, dataList}) => {
   var settings = {
     dots: true,
     infinite: true,
@@ -36,7 +36,7 @@ const HomapageSlider = () => {
               The World.
             </span>
 
-            <Tracker/>
+            <Tracker filteredData={filteredData} setData={setData}  setUsers={setUsers}   dataList={dataList}/>
           </div>
         </div>
 
@@ -59,7 +59,8 @@ const HomapageSlider = () => {
               Thousands of happy marriages happened through us.You could be
               next!
             </span>
-            <Tracker/>
+            <Tracker filteredData={filteredData} setData={setData}  setUsers={setUsers}   dataList={dataList}/>
+            {/* <Tracker/> */}
           </div>
 
         </div>

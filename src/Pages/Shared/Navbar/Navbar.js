@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import NavigationShape1 from "../../../images/navigation-shape1.png";
 import NavigationShape2 from "../../../images/navigation-shape2.png";
 import logo from "../../../images/logo.png";
@@ -17,7 +17,8 @@ const Navbar = () => {
 
   const location = useLocation()
   const { user, logOut } = useContext(AuthContext)
-
+  
+  
   const handelLogOut = () => {
     logOut()
       .then(result => {
@@ -25,6 +26,7 @@ const Navbar = () => {
       }).catch((error) => {
       });
   }
+
 
   if (location.pathname === '/') {
     return (
@@ -132,7 +134,7 @@ const Navbar = () => {
               <FaHeadphonesAlt />
               {user?.uid ?
                 user?.uid &&
-                <Link to='#'> Go to profile</Link>
+                <Link to='/my-profile'> Go to profile</Link>
                 :
                 <Link to='/register'> Register</Link>
               }
@@ -312,7 +314,7 @@ const Navbar = () => {
                 :
                 <>
                   <FaRegUser />
-                  <Link to='/login'> Login</Link>
+                  <Link to='/login'> Login</Link> 
                 </>
               }
             </button>
@@ -320,7 +322,7 @@ const Navbar = () => {
               <FaHeadphonesAlt />
               {user?.uid ?
                 user?.uid &&
-                <Link to='#'> Go to profile</Link>
+                <Link to="/my-profile"> Go to profile</Link>
                 :
                 <Link to='/register'> Register</Link>
               }

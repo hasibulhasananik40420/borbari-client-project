@@ -59,6 +59,8 @@ const Register = () => {
                   saveUser(
                     data.name,
                     data.email,
+                    data.age,
+                    data.phone,
                     data.religion,
                     data.gender,
                     data.password,
@@ -76,9 +78,9 @@ const Register = () => {
 
 
 
-    const saveUser = (name, email, religion, gender, password, photoURL) => {
+    const saveUser = (name, email, age, phone, religion, gender, password, photoURL) => {
       const notify = () => toast("Registration Successful!");
-      const user = { profile_id, name, email, religion, gender, password, photoURL, verified };
+      const user = { profile_id, name, email, age, phone, religion, gender, password, photoURL, verified };
       fetch(`${API_URL}users`, {
         method: 'POST',
         headers: {
@@ -100,148 +102,110 @@ const Register = () => {
       <ToastContainer />
       <div className=' lg:flex lg:flex-row-reverse gap-10 w-full border border-red-500 rounded-2xl'>
         <div className='w-full bg-white rounded-2xl  h-full lg:mt-12'>
-          <form onSubmit={handleSubmit(handleSignUp)} className="grid grid-cols-1 gap-4 mt-8 md:grid-cols-2 px-12">
-            <div>
-              <label className="block mb-2 text-sm text-gray-600 dark:text-gray-200">First Name</label>
-              <input
-                {...register("name", {
-                  required: "Name is required",
-                })}
-                type="text" placeholder="Enter bride or Groom name" className="input input-bordered w-full max-w-xs" />
-              {errors.name && <p className='text-red-500'>{errors.name.message}</p>}
-            </div>
+          <form onSubmit={handleSubmit(handleSignUp)}>
+            <div class="grid grid-cols-1 gap-6 mt-8 lg:grid-cols-2">
 
-            <div>
-              <label className="block mb-2 text-sm text-gray-600 dark:text-gray-200">Gender</label>
+              <div>
+                <label class="block mb-2 text-sm text-gray-600 dark:text-gray-200">First Name</label>
+                <input
+                  {...register("name", {
+                    required: "Name is required",
+                  })}
+                  type="text" placeholder="Enter bride or groom name" class="block w-full border border-red-400 px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white rounded-full dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" />
+              </div>
 
-              <select
-                {...register("gender", {
-                  required: "Gender is required",
-                })}
-                className="select w-full max-w-xs">
-                <option disabled selected>Gender</option>
-                <option>Male</option>
-                <option>Female</option>
-              </select>
+              <div>
+                <label class="block mb-2 text-sm text-gray-600 dark:text-gray-200">Gender</label>
 
-            </div>
+                <select
+                  {...register("gender", {
+                  })}
+                  className="select w-full max-w-xs">
+                  <option disabled selected>Gender</option>
+                  <option>Male</option>
+                  <option>Female</option>
+                </select>
+              </div>
 
+              <div>
+                <label class="block mb-2 text-sm text-gray-600 dark:text-gray-200">Religion</label>
 
-            <div>
-              <label className="block mb-2 text-sm text-gray-600 dark:text-gray-200">Religion</label>
-              <select
-                {...register("religion", {
-                  required: "Religion is required",
-                })}
+                <select
+                  {...register("religion", {
+                  })}
+                  className="select border border-red-400 block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white rounded-full dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40">
+                  <option disabled selected>Select</option>
+                  <option>Muslim</option>
+                  <option>Marge</option>
+                  <option>Bart</option>
+                  <option>Lisa</option>
+                  <option>Maggie</option>
+                </select>
+              </div>
 
-                className="select w-full max-w-xs">
-                <option disabled selected>Islam</option>
-                <option>Islam</option>
-                <option>Homer</option>
-                <option>Marge</option>
-                <option>Bart</option>
-                <option>Lisa</option>
-                <option>Maggie</option>
-              </select>
+              <div>
+                <label class="block mb-2 text-sm text-gray-600 dark:text-gray-200">User ID</label>
+                <input
+                  {...register("email", {
+                    required: "Email is required",
+                  })}
+                  type="text" placeholder="Enter your email" class="block w-full border border-red-400 px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white rounded-full dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" />
+              </div>
 
-            </div>
+              <div>
+                <label class="block mb-2 text-sm text-gray-600 dark:text-gray-200">Your Age</label>
+                <input
+                  {...register("age", {
+                    required: "",
+                  })}
+                  type="number" placeholder="Enter your Age" class="block w-full border border-red-400 px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white rounded-full dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" />
+              </div>
 
-
-
-
-            <div>
-              <label className="block mb-2 text-sm text-gray-600 dark:text-gray-200">Religion</label>
-              <select
-                {...register("religion", {
-                  required: "Religion is required",
-                })}
-
-                className="select w-full max-w-xs">
-                <option disabled selected>Islam</option>
-                <option>Islam</option>
-                <option>Homer</option>
-                <option>Marge</option>
-                <option>Bart</option>
-                <option>Lisa</option>
-                <option>Maggie</option>
-              </select>
-
-            </div>
-
-            <div>
-              <label className="block mb-2 text-sm text-gray-600 dark:text-gray-200">User ID</label>
-              <input
-                {...register("email", {
-                  required: "Email is required",
-                })}
-                type="email" placeholder="Enter your email" className="input input-bordered w-full max-w-xs" />
-              {errors.email && <p className='text-red-500'>{errors.email.message}</p>}
-            </div>
-
-            <div>
-              <label className="block mb-2 text-sm text-gray-600 dark:text-gray-200">Password</label>
-              <input
-                {...register("password", {
-                  required: "Password is required",
-                })}
-                type="text" placeholder="Password" className="input input-bordered w-full max-w-xs" />
-              {errors.password && <p className='text-red-500'>{errors.password.message}</p>}
-            </div>
-
-            <div>
-              <label className="block mb-2 text-sm text-gray-600 dark:text-gray-200">Profile Picture</label>
-              <input
-                {...register("image", {
-                })}
-                type="file" className="file-input w-full max-w-xs" />
-            </div>
+              <div>
+                <label class="block mb-2 text-sm text-gray-600 dark:text-gray-200">Phone</label>
+                <input
+                  {...register("phone", {
+                    required: "Phone is required",
+                  })}
+                  type="text" placeholder="Enter your phone" class="block w-full border border-red-400 px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white rounded-full dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" />
+              </div>
 
 
-            <div>
-              <label className="block mb-2 text-sm text-gray-600 dark:text-gray-200">Age</label>
-              <input
-                {...register("password", {
-                  required: "Password is required",
-                })}
-                type="text" placeholder="Password" className="input input-bordered w-full max-w-xs" />
-              {errors.password && <p className='text-red-500'>{errors.password.message}</p>}
-            </div>
+
+              <div>
+                <label class="block mb-2 text-sm text-gray-600 dark:text-gray-200">Password</label>
+                <input
+                  {...register("password", {
+                    required: "Password is required",
+                  })}
+                  type="password" placeholder="Password" class="block w-full border border-red-400 px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white rounded-full dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" />
+              </div>
 
 
-            <div>
-              <label className="block mb-2 text-sm text-gray-600 dark:text-gray-200">Phone</label>
-              <input
-                {...register("password", {
-                  required: "Password is required",
-                })}
-                type="text" placeholder="Password" className="input input-bordered w-full max-w-xs" />
-              {errors.password && <p className='text-red-500'>{errors.password.message}</p>}
-            </div>
+              <div>
+                <label class="block mb-2 text-sm text-gray-600 dark:text-gray-200">Profile Picture</label>
+
+                <input
+                  {...register("image", {
+                  })}
+                  type="file" placeholder="You can't touch this" className="file-input name=''  " />
+
+              </div>
+
+              <div className='flex items-center gap-2'>
+                <h1>
+                  <input type="checkbox" className="checkbox" onChange={handleCheckboxChange} />
+                </h1>
+                <h1> I have read and agree to the <span className='text-red-400'>T&C</span> and <span className='text-red-400'>Privacy Policy</span></h1>
 
 
-            <div className='flex items-center gap-2'>
-              <h1>
-                <input type="checkbox" className="checkbox" onChange={handleCheckboxChange} />
-              </h1>
-              <h1> I have read and agree to the <span className='text-red-400'>T&C</span> and <span className='text-red-400'>Privacy Policy</span></h1>
-
+              </div>
 
             </div>
-
-            <button type='submit' disabled={!isChecked} className='w-48 h-12 rounded-full bg-red-500 text-white mt-4' style={{ 'backgroundColor': !isChecked ? 'gray' : 'red' }}>Submit</button>
-
-            {/* <button type='submit' disabled={!isChecked} className='w-48 h-12 rounded-full bg-red-500 text-white mt-4'>Submit</button> */}
-
-
-
-            <span className='pt-8'>Already Have Account   <Link to='/login' className='text-red-500 ml-2'>Login</Link></span>
-
-            <span className='pt-8'>Already Registered   <Link to='/active-account' className='text-red-500 ml-2'>Active Account</Link></span>
-
-
-
-
-          </form>
+            <div className='w-full mt-16 flex justify-center'>
+              <button type='submit' disabled={!isChecked} className='w-48 h-12 rounded-full bg-red-500 text-white mt-4' style={{ 'backgroundColor': !isChecked ? 'gray' : 'red' }}>Submit</button>
+            </div>
+          </form> 
 
 
 

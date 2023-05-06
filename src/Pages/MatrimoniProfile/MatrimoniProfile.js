@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { RxDot } from "react-icons/rx";
 import { BsTelephone } from "react-icons/bs";
 import { Link, Navigate } from "react-router-dom";
 
