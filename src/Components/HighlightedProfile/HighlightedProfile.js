@@ -3,16 +3,7 @@ import HighlightedProfileCard from './HighlightedProfileCard'
 import { API_URL } from "../../Context/API_URL";
 
 
-const HighlightedProfile = () => {
-
-    const [users, setUsers] = useState([]);
-
-    useEffect(() => {
-        fetch(`${API_URL}users`)
-            .then(response => response.json())
-            .then(data => setUsers(data))
-            .catch(error => console.error(error));
-    }, []);
+const HighlightedProfile = ({ data }) => {
 
 
 
@@ -26,9 +17,12 @@ const HighlightedProfile = () => {
                 <p className='text-[#737373] font-sans text-center text-xl mt-1'>BorBibi.com</p>
 
                 <div className=' mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 2xl:grid-cols-5 gap-4 justify-items-center'>
-                    {users.map(user => (
-                        <HighlightedProfileCard key={user.id} users={user} />
-                    ))}
+                    {
+                        data.map(user => (
+                            <HighlightedProfileCard key={user.id} users={user} data={data} />
+                        ))
+
+                    }
 
 
                 </div>

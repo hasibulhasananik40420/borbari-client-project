@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Home from './Pages/Home/Home';
 import Navbar from './Pages/Shared/Navbar/Navbar';
@@ -25,6 +25,8 @@ import SingleProfileDetails from './Components/HighlightedProfile/SingleProfileD
 import MatrimoniProfile from './Pages/MatrimoniProfile/MatrimoniProfile';
 import NotFoundPage from './Pages/NotFoundPage/NotFoundPage';
 import SingleBlog from './Pages/Blog/SingleBlog';
+import MyProfile from './Components/MyProfile/MyProfile';
+import OtherSearch from './Pages/Search/NestedRoute/OtherSearch';
 
 const App = () => {
   return (
@@ -45,13 +47,14 @@ const App = () => {
         <Route path="/working-progess" element={<WorkingProgess />} />
         <Route path="/matrimoni-profile" element={<MatrimoniProfile />} />
         <Route path="/single-blogs" element={<SingleBlog />} />
-        <Route path="/single-profile-detail/:id" element={<SingleProfileDetails />} />
+        <Route path="/my-profile" element={<MyProfile />} />
         <Route path="*" element={<NotFoundPage />} />
+        <Route path="user/:id" element={<SingleProfileDetails />} ></Route>
 
-
-        <Route path={'/search'} element={<Search />}>
+        <Route path={'/search/'} element={<Search />}>
 
           <Route index path='' element={<BasicSearch />}></Route>
+          <Route path='other-search' element={<OtherSearch />}></Route>
           <Route path='advance-search' element={<AdvanceSearch />}></Route>
           <Route path='search-by-id' element={<SearchById />}></Route>
           <Route path='district-search' element={<DistrictSearch />}></Route>
@@ -64,7 +67,7 @@ const App = () => {
 
       </Routes>
 
-      <Footer/>
+      <Footer />
     </div>
   );
 };

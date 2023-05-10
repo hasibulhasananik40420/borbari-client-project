@@ -1,8 +1,34 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { RxDot } from 'react-icons/rx';
 import { BsTelephone } from 'react-icons/bs';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
+import { API_URL } from '../../Context/API_URL';
 const SingleProfileDetails = () => {
+
+  const [allUsers, setAllUsers] = useState({})
+  const { id } = useParams()
+
+  console.log(id)
+
+  useEffect(() => {
+    const url = `${API_URL}user/${id}`
+    fetch(url)
+      .then(res => res.json())
+      .then(data => {
+        setAllUsers(data)
+      })
+  }, [])
+
+  console.log(allUsers)
+  const { profile_id, name, age, religion, gender, photoURL, phone } = allUsers;
+
+
+  
+  function makePhoneCall() {
+    window.location.href = 'tel:' + phone;
+  }
+
+
   return (
     <div className='mt-72 lg:mx-16 mx-2'>
 
@@ -17,30 +43,30 @@ const SingleProfileDetails = () => {
 
           <div className='lg:flex w-full bg-[#f7f8fc] rounded-2xl'>
             <div className='lg:w-2/4 w-full p-4 '>
-              <img className='w-[250px] h-[250px] border-2 rounded' src="https://admin.borbibi.com/media/profile_image/e4cd13bc-6f33-436e-91b3-c712d2a0062e.jpg" alt="" />
+              <img className='w-[250px] h-[250px] border-2 rounded' src={photoURL?.photoURL} alt="" />
             </div>
 
             <div className='lg:w-[400px] w-full mt-10'>
               <div className='flex flex-col gap-y-4 p-8'>
                 <div className='flex justify-between'>
                   <span className='text-base font-medium text-[#737373] font-sans'>Profile ID:</span>
-                  <span className='text-base font-medium text-red-500 font-sans'> BB-0000766</span>
+                  <span className='text-base font-medium text-red-500 font-sans'> {profile_id}</span>
                 </div>
                 <div className='flex justify-between'>
                   <span className='text-base font-medium text-[#737373] font-sans'>Name:</span>
-                  <span className='text-base font-medium text-red-500 font-sans'>Create an Account</span>
+                  <span className='text-base font-medium text-red-500 font-sans'>{name}</span>
                 </div>
                 <div className='flex justify-between'>
                   <span className='text-base font-medium text-[#737373] font-sans'>Age:</span>
-                  <span className='text-base font-medium text-red-500 font-sans'>35</span>
+                  <span className='text-base font-medium text-red-500 font-sans'>{age}</span>
                 </div>
                 <div className='flex justify-between'>
                   <span className='text-base font-medium text-[#737373] font-sans'>Religion:</span>
-                  <span className='text-base font-medium text-red-500 font-sans'>Islam</span>
+                  <span className='text-base font-medium text-red-500 font-sans'>{religion}</span>
                 </div>
                 <div className='flex justify-between'>
                   <span className='text-base font-medium text-[#737373] font-sans'>Gender:</span>
-                  <span className='text-base font-medium text-red-500 font-sans'>Muslim</span>
+                  <span className='text-base font-medium text-red-500 font-sans'>{gender}</span>
                 </div>
 
                 <div className='flex justify-between'>
@@ -57,7 +83,7 @@ const SingleProfileDetails = () => {
                   <span className='text-base font-medium text-[#737373] font-sans'>Profile Complete
                     :</span>
                   <span className='text-base font-medium text-red-500 font-sans'>
-                    85%</span>
+                    43%</span>
                 </div>
 
 
@@ -89,7 +115,10 @@ const SingleProfileDetails = () => {
               <span className='w-full'>
 
                 <span className='text-[#737373] lg:text-base text-sm w-[300px] '>
-                  (Verified)Only Paid Member Can See  Sign Up</span>
+                  {/* (Verified)Only Paid Member Can See  Sign Up */}
+                  {phone}
+                  <span> <button onClick={() => makePhoneCall()} className='btn-sm text-blue-300 hover:bg-blue-100 hover:text-blue-600 border'> call</button></span>
+                </span>
               </span>
             </div>
 
@@ -99,7 +128,7 @@ const SingleProfileDetails = () => {
               <span className='w-full'>
 
                 <span className='text-[#737373] lg:text-base text-sm w-[300px] '>
-                  BB00GGGG</span>
+                  {profile_id}</span>
               </span>
             </div>
 
@@ -109,7 +138,7 @@ const SingleProfileDetails = () => {
               <span className='w-full'>
 
                 <span className='text-[#737373] lg:text-base text-sm w-[300px] '>
-                  Muslim</span>
+                  {religion}</span>
               </span>
             </div>
 
@@ -161,8 +190,6 @@ const SingleProfileDetails = () => {
 
                 <span className='text-[#737373] lg:text-base text-sm w-[300px] '>
                   Yes. Living Together
-
-
                 </span>
               </span>
             </div>
@@ -592,24 +619,7 @@ const SingleProfileDetails = () => {
 
         </div>
 
-
-
-
-
-
-
-
-
       </div>
-
-
-
-
-
-
-
-
-
     </div>
   )
 }

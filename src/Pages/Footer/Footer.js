@@ -1,8 +1,9 @@
 import React from 'react'
 import NavigationShape1 from '../../images/navigation-shape1.png'
 import NavigationShape2 from '../../images/navigation-shape2.png'
-import logo from '../../images/logo.png'
+import logo from '../../images/logo-1.png'
 import { FaFacebookF, FaInstagram, FaLinkedinIn, FaTwitter, FaYoutube } from 'react-icons/fa'
+import { Link } from 'react-router-dom'
 const Footer = () => {
     return (
         <div className="bg-footer-image bg-no-repeat bg-cover bg-center  flex flex-col justify-center items-center  mt-12">
@@ -112,19 +113,19 @@ const Footer = () => {
 
 {/* blog */}
            <div className='lg:flex lg:flex-row lg:justify-center lg:items-center lg:gap-8 mt-6 pb-12  flex flex-col gap-4 justify-center items-center '>
-             <p className='text-xl font-medium text-white font-sans'>Blog</p>
-             <p className='text-xl font-medium text-white font-sans'>Privacy & Policy</p>
-             <p className='text-xl font-medium text-white font-sans'>Refund Policy</p>
-             <p className='text-xl font-medium text-white font-sans'>Contact us</p>
-             <p className='text-xl font-medium text-white font-sans'>Tell a Friend</p>
-             <p className='text-xl font-medium text-white font-sans'>FAQ</p>
-             <p className='text-xl font-medium text-white font-sans'>Terms & Conditions</p>
+            <Link to='/blog'> <p className='text-xl font-medium text-white font-sans'>Blog</p></Link>
+             <Link to='/'><p className='text-xl font-medium text-white font-sans'>Privacy & Policy</p></Link>
+             <Link to='/'><p className='text-xl font-medium text-white font-sans'>Refund Policy</p></Link>
+             <Link to='/contact'><p className='text-xl font-medium text-white font-sans'>Contact us</p></Link>
+             <Link to='/'><p className='text-xl font-medium text-white font-sans'>Tell a Friend</p></Link>
+             <Link to='/'><p className='text-xl font-medium text-white font-sans'>FAQ</p></Link>
+             <Link to='/'><p className='text-xl font-medium text-white font-sans'>Terms & Conditions</p></Link>
 
            </div>
 
            <div className="w-full h-[1px] mx-auto border-b border-b-gray-300"></div>
 
-           <p className='text-[#c18b4d] text-sm text-center pb-8 pt-8'>COPYRIGHT ©2015- 2023 BORBIBI.COM . ALL RIGHTS RESERVED</p>
+           <p className='text-[#c18b4d] text-sm text-center pb-8 pt-8'>COPYRIGHT ©2023- 2023 BIARFUL.COM . ALL RIGHTS RESERVED</p>
 
 
 

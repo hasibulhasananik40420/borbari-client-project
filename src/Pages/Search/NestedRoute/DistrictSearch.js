@@ -3,14 +3,14 @@ import React from 'react'
 const DistrictSearch = () => {
   return (
     <div className='flex flex-col gap-8'>
-       <div className='flex lg:gap-20 gap-4 items-center'>
+       {/* <div className='flex lg:gap-20 gap-4 items-center'>
           <span className='text-[#737373] lg:text-xl text-base'>District Search</span>
           <span className='lg:w-[600px] w-[200px] border border-b-red-500'></span>
-        </div>
+        </div> */}
+          <h1 className='text-xl text-[#737373]'>You are not allowd To Profession search! Please upgrade your membership level</h1>
 
-      <div className='lg:flex items-center gap-16'>
+      {/* <div className='lg:flex items-center gap-16'>
         <span className='text-[#737373] lg:text-base text-sm w-[300px] '>Looking For</span>
-        {/* <label className="block mb-2 text-sm text-gray-600 dark:text-gray-200">Looking For</label> */}
         <span className='w-full'>
           <select className="select-secondary select w-full max-w-xs ">
             <option disabled selected>Select</option>
@@ -100,7 +100,7 @@ const DistrictSearch = () => {
           <button className='w-24 h-10 rounded-full bg-red-500 text-white font-medium duration-500 hover:bg-red-800'>Reset</button>
         </div>
 
-      </div>
+      </div> */}
 
 
     </div>
