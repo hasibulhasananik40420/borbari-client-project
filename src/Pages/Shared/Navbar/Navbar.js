@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import NavigationShape1 from "../../../images/navigation-shape1.png";
 import NavigationShape2 from "../../../images/navigation-shape2.png";
-import logo from "../../../images/logo.png";
+import logo from "../../../images/logo-1.png";
 import { FaFacebookF } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import { FaLinkedinIn } from "react-icons/fa";
@@ -108,7 +108,7 @@ const Navbar = () => {
               <div className="logo-section flex items-center justify-center">
                 <img className="w-[100px]" src={NavigationShape1} alt="" />
                 <a
-                  className="bg-white rounded-full ml-[25px] mr-[25px] lg:h-[120px] lg:w-[120px] w-[80px] h-[80px] justify-center inline-flex items-center before:absolute  before:border-white before:border-[5px] before:rounded-full before:animate-spin border lg:before:w-[150px] lg:before:h-[150px] before:w-[100px] before:h-[100px] before:border-dotted relative before:duration-[5000s]"
+                  className="bg-white  rounded-full ml-[25px] mr-[25px] lg:h-[120px] lg:w-[120px] w-[80px] h-[80px] justify-center inline-flex items-center before:absolute  before:border-white before:border-[5px] before:rounded-full before:animate-spin border lg:before:w-[150px] lg:before:h-[150px] before:w-[100px] before:h-[100px] before:border-dotted relative before:duration-[5000s]"
                   href="/"
                 >
                   <img src={logo} alt="biyerful-logo" />
@@ -119,7 +119,7 @@ const Navbar = () => {
           </div>
           {/* thired section */}
           <div className="lg:flex lg:flex-row lg:gap-4 flex flex-col justify-center items-center gap-3 mt-8">
-            <button className="text-white w-32 h-12 bg-transparent rounded-full border-2 text-[14px] flex justify-center items-center gap-2 ">
+            <button className="text-white hover:bg-[#f05e6b] duration-300 hover:border-none w-32 h-12 bg-transparent rounded-full border-2 text-[14px] flex justify-center items-center gap-2 ">
               {user?.uid ?
                 user?.uid &&
                 <Link onClick={handelLogOut} > Log out</Link>
@@ -130,7 +130,7 @@ const Navbar = () => {
                 </>
               }
             </button>
-            <button className="text-white w-32 h-12 bg-transparent rounded-full border-2 text-[14px] flex justify-center items-center gap-2">
+            <button className="text-white hover:bg-[#f05e6b] duration-300 hover:border-none w-32 h-12 bg-transparent rounded-full border-2 text-[14px] flex justify-center items-center gap-2">
               <FaHeadphonesAlt />
               {user?.uid ?
                 user?.uid &&

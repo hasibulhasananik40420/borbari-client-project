@@ -50,7 +50,7 @@ const HomapageSlider = ({filteredData, setData, setUsers, dataList}) => {
             <span className="text-[15px] mt-44">Why Join</span>
             <Typewriter className='text-[20px]'
               options={{
-                strings: ["BorBibi.com", "This Community?"],
+                strings: ["Biarful.com", "This Community?"],
                 autoStart: true,
                 loop: true,
               }}
