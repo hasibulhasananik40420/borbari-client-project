@@ -103,7 +103,7 @@ const Register = () => {
       <div className=' lg:flex lg:flex-row-reverse gap-10 w-full border border-red-500 rounded-2xl'>
         <div className='w-full bg-white rounded-2xl  h-full lg:mt-12'>
           <form onSubmit={handleSubmit(handleSignUp)}>
-            <div class="grid grid-cols-1 gap-6 mt-8 lg:grid-cols-2">
+            <div class="grid grid-cols-1 gap-6 mt-8 lg:grid-cols-2 p-12">
 
               <div>
                 <label class="block mb-2 text-sm text-gray-600 dark:text-gray-200">First Name</label>
