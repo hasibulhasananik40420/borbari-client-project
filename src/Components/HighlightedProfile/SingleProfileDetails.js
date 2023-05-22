@@ -8,7 +8,6 @@ const SingleProfileDetails = () => {
   const [allUsers, setAllUsers] = useState({})
   const { id } = useParams()
 
-  console.log(id)
 
   useEffect(() => {
     const url = `${API_URL}user/${id}`
@@ -17,7 +16,7 @@ const SingleProfileDetails = () => {
       .then(data => {
         setAllUsers(data)
       })
-  }, [])
+  }, [id])
 
   console.log(allUsers)
   const { profile_id, name, age, religion, gender, photoURL, phone } = allUsers;
