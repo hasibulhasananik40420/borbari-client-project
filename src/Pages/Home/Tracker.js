@@ -111,8 +111,8 @@ const Tracker = ({ setData, setUsers, dataList}) => {
 
                
               
-               <div className='lg:bg-white h-full w-full lg:rounded-r-full py-10 lg:text-left'>
-                <button type='submit' className='bg-red-500 text-white w-32 h-11 rounded-r-full'>Let's Begin</button>
+               <div className='lg:bg-white h-full w-full lg:rounded-r-full  py-10 lg:text-left'>
+                <button type='submit' className='bg-red-500 text-white w-32 h-11 lg:rounded-r-full rounded-full'>Let's Begin</button>
               
               
                 <Link to='/search'> <h1 className='text-red-500 font-sans mt-2 ml-2'>Advanced search</h1></Link>
