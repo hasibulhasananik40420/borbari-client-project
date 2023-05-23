@@ -34,7 +34,7 @@ const Navbar = () => {
 
 
 
-        <div className="lg:flex justify-between items-center lg:px-12 lg:py-12 px-2 py-4">
+        <div className="lg:flex justify-between items-center lg:px-12 lg:py-12 px-2 py-14">
           {/* strit icon */}
           <div>
             <div className="hidden lg:block">
@@ -118,8 +118,8 @@ const Navbar = () => {
             </div>
           </div>
           {/* thired section */}
-          <div className="lg:flex lg:flex-row lg:gap-4 flex flex-col justify-center items-center gap-3 mt-8">
-            <button className="text-white hover:bg-[#f05e6b] duration-300 hover:border-none w-32 h-12 bg-transparent rounded-full border-2 text-[14px] flex justify-center items-center gap-2 ">
+          <div className="flex flex-row gap-4 justify-center lg:mt-8 mt-12 mb-6">
+            <button className="text-white hover:bg-[#f05e6b] duration-300 hover:border-none w-32 h-12 bg-transparent rounded-full border-2 text-[14px]  flex justify-center items-center gap-2 ">
               {user?.uid ?
                 user?.uid &&
                 <Link onClick={handelLogOut} > Log out</Link>

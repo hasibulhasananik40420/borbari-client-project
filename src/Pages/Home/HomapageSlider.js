@@ -18,20 +18,22 @@ const HomapageSlider = ({filteredData, setData, setUsers, dataList}) => {
   return (
     <div>
       <Slider {...settings}>
-        <div className="homepage-slide-1 slide-bg h-screen text-white relative">
+        <div className="homepage-slide-1 slide-bg lg:h-screen h-[110vh] text-white relative">
           <div class="overlay"></div>
           <div class="carousel-content z-[9999]">
-            <span className="text-[15px] mt-44 ">Welcome To</span>
+            <span className="text-[15px] mt-44 lg:block hidden">Welcome To</span>
 
-            <Typewriter className='text-[20px]'
+           <div className="lg:block hidden">
+           <Typewriter className='lg:text-[20px] !text-[10px]'
               options={{
-                strings: ["BorBibi.com"],
+                strings: ["Biarful.com"],
                 autoStart: true,
                 loop: true,
               }}
             />
+           </div>
 
-            <span className="text-[15px]">
+            <span className="lg:text-[15px] text-[10px] lg:block hidden">
               The Largest & Exclusive Community Site For Bengali Singles Across
               The World.
             </span>
@@ -44,18 +46,20 @@ const HomapageSlider = ({filteredData, setData, setUsers, dataList}) => {
 
 
 
-        <div className="homepage-slide-2 slide-bg h-screen text-white relative">
+        <div className="homepage-slide-2 slide-bg lg:h-screen h-[110vh] text-white relative">
           <div class="overlay"></div>
           <div class="carousel-content z-[9999]">
-            <span className="text-[15px] mt-44">Why Join</span>
-            <Typewriter className='text-[20px]'
+            <span className="text-[15px] mt-44 lg:block hidden">Why Join</span>
+           <div className="lg:block hidden">
+           <Typewriter className='lg:text-[20px] !text-[10px]'
               options={{
-                strings: ["Biarful.com", "This Community?"],
+                strings: ["Biarful.com"],
                 autoStart: true,
                 loop: true,
               }}
             />
-            <span className="text-[16px]">
+           </div>
+            <span className="lg:text-[15px] text-[10px] lg:block hidden">
               Thousands of happy marriages happened through us.You could be
               next!
             </span>
