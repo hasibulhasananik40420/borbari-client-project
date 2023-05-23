@@ -33,10 +33,6 @@ const Footer = () => {
                 <div>
                     <button className='bg-gray-950 rounded-full border h-10 w-36 hover:bg-white hover:text-black duration-300'>24X7 LIVE HELP </button>
                 </div>
-
-
-
-
             </div>
 
 

@@ -6,7 +6,6 @@ import { API_URL } from "../../Context/API_URL";
 const HighlightedProfile = ({ data }) => {
 
 
-
     return (
 
         <>
