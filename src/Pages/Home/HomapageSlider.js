@@ -26,7 +26,7 @@ const HomapageSlider = ({filteredData, setData, setUsers, dataList}) => {
            <div className="lg:block hidden">
            <Typewriter className='lg:text-[20px] !text-[10px]'
               options={{
-                strings: ["Biyerrful.com"],
+                strings: ["Biyerful.com"],
                 autoStart: true,
                 loop: true,
               }}
