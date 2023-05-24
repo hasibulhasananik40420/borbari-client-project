@@ -121,7 +121,7 @@ const Footer = () => {
 
            <div className="w-full h-[1px] mx-auto border-b border-b-gray-300"></div>
 
-           <p className='text-[#c18b4d] text-sm text-center pb-8 pt-8'>COPYRIGHT ©2023- 2023 BIARFUL.COM . ALL RIGHTS RESERVED</p>
+           <p className='text-[#c18b4d] text-sm text-center pb-8 pt-8'>COPYRIGHT ©2023- 2023 BIYERFUL.COM . ALL RIGHTS RESERVED</p>
 
 
 
